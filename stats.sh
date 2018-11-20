@@ -3,13 +3,13 @@ diskused=$(df -h | grep "/dev/sda1" | awk '{print $5}' )
 memfree=$(free -mh | grep Mem: | awk '{print $7}' )
 connections=$( netstat | grep tcp )
 users=$( who )
-echo "This is a snapshot of your current system:
+echo -en "This is a snapshot of your current system:
 
-                    Disk used: $diskused
+              \e[104mLight      Disk used: $diskused
                     
-                    Free Menory: $memfree
+               \e[105mLight     Free Menory: $memfree
                     
-                    Logged in users: $users
+                 \e[106mLight   Logged in users: $users
                     
  Open Internet connections: 
  $connections
